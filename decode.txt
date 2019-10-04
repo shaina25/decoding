@@ -1,0 +1,29 @@
+def decode(str_in):
+    count=0
+    if (len(str_in)==0):
+        return 1
+    if (str_in[0]=='0'):
+        return 0
+    if len(str_in)==1:
+        return 1
+    
+    value=str_in[:2]
+    int_value=int(value)
+
+    if int_value>26:
+        count+=decode(str_in[1:])
+        
+    else:
+        count+=decode(str_in[1:])
+        
+        count+=decode(str_in[2:])
+        
+        
+    return count
+test_cases=int(input())
+for case in range(test_cases):
+    length=int(input())
+    str_in=input()
+    print(decode(str_in))
+
+"# decoding" 
